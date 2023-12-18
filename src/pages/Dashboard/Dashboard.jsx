@@ -22,6 +22,7 @@ import {
   import { FiMenu, FiBell, FiChevronDown, FiHome } from "react-icons/fi";
   import { FaCarSide,FaHandsHelping  } from "react-icons/fa";
   import { MdOutlineEmojiPeople } from "react-icons/md";
+  import { FaMapLocationDot } from "react-icons/fa6";
 
   // import { IconType } from 'react-icons'
   import { useEffect, useState } from "react";
@@ -45,7 +46,7 @@ import {
         h="full"
         {...rest}
       >
-        <Link to="/dashboard">
+        <Link to="/dashboardContent">
           <Flex h="28" alignItems="center" mx="18" m="5"  justifyContent="space-between">
             <img alt="" src={logo}></img>
             <CloseButton
@@ -55,7 +56,7 @@ import {
           </Flex>
         </Link>
         <>
-          <Link to="/dashboard">
+          <Link to="/dashboardContent">
             <NavItem icon={FiHome}>Dashboard</NavItem>
           </Link>
           <Link to="/addVehicle">
@@ -65,9 +66,9 @@ import {
           <Link to="/addDriver">
             <NavItem icon={MdOutlineEmojiPeople}>Add Driver</NavItem>
           </Link>
-          {/* <Link to="/chart">
-            <NavItem>Chart</NavItem>
-          </Link> */}
+          <Link to="/livelocation">
+            <NavItem icon={FaMapLocationDot}>Live View</NavItem>
+          </Link>
           <NavItem icon={FaHandsHelping }>Help</NavItem>
         </>
       </Box>
@@ -180,8 +181,9 @@ import {
                     spacing="1px"
                     ml="2"
                   >
-                    <Text fontSize="xs" color="gray.600"></Text>
-                    <Text fontSize="xs" color="gray.600"></Text>
+                    <Text fontSize="md" color="black" fontWeight="bold">
+                    Admin
+                  </Text>
                   </VStack>
                   <Box display={{ base: "none", md: "flex" }}>
                     <FiChevronDown />

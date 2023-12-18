@@ -1,0 +1,100 @@
+.container {
+    background-color: #f6f8fc;
+}
+.card-container {
+    /* border: 2px solid red;  */
+    display: flex;
+    justify-content: center; /* Center the cards horizontally */
+    align-items: center; /* Center the cards vertically */
+    /* background-color: #f6f8fc; */
+    
+    /* background:linear-gradient(0.28turn, #334c5c 60%, #ffb81c, #00ffff); */
+}
+
+.small-card {
+
+    width: 260px;
+    height: 150px;
+    margin: 8px;
+    background: linear-gradient( transparent)!important;
+}
+
+.small-card1 {
+   
+    width: 240px;
+    height: 150px;
+    margin: 8px;
+    margin-left: 250px;
+    background: linear-gradient( transparent)!important;
+}
+.small-card2 {
+    border: 2px solid yellow;
+    width: 240px;
+    height: 150px;
+    margin: 8px;
+    /* margin-left: 200px; */
+    background: linear-gradient( transparent )!important;
+}
+.card-container1 {
+    margin-left: 240px;
+    height: 550px;
+    width: 78%;
+    border-radius: 5px;
+    /* border-top: 1px solid white; */
+    box-shadow: '1px 2px 9px #F4AAB9';
+    /* display: flex; */
+    background-color: white!important;
+    justify-content: center; /* Center the cards horizontally */
+    align-items: center; /* Center the cards vertically */
+}
+.big-card {
+    
+    width: 1200px;
+    height: 450px;
+     margin-left: 175px; 
+    background-color: #eaecf4!important;
+}
+
+#first{
+    background-color: #ffc649;
+    color: #000000;
+}
+#second{
+    background-color: #334c5c;
+    color: white;
+}
+#third{
+    background-color: #ffc649;
+    color: #000000;
+}
+
+#fourth{
+    background-color: #334c5c;
+    color: white;
+}
+
+
+h3{
+   margin: 30px 50px;
+   font-size: 1.5rem;
+   font-weight: 500;
+   font-family: 'Times New Roman', Times, serif;
+
+}
+.actionBtn{
+    padding-left: 30px;
+    display: flex;
+    /* border: 2px solid green; */
+    width: 50%;
+    height: 50px;
+    font-family: 'Times New Roman', Times, serif;
+}
+.actionBtn button{
+    margin: 0px 5px;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.tableList th{
+    padding: 20px 25px;
+    font-family: 'Times New Roman', Times, serif;
+}
