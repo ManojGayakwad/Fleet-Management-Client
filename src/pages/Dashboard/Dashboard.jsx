@@ -74,7 +74,16 @@ import logo from "../../assets/logo2.png";
           <Link to="/livelocation">
             <NavItem icon={FaMapLocationDot}>Live View</NavItem>
           </Link>
+
           
+
+          <Link to="">
+            <NavItem icon={FaMapLocationDot}>Trips</NavItem>
+          </Link>
+          <Link to="">
+            <NavItem icon={FaMapLocationDot}>Fuel Usage</NavItem>
+          </Link>
+
           <NavItem icon={FaHandsHelping }>Help</NavItem>
         </>
       </Box>
