@@ -1,39 +1,41 @@
 import {
-    IconButton,
-    Avatar,
-    Box,
-    CloseButton,
-    Flex,
-    HStack,
-    VStack,
-    Icon,
-    useColorModeValue,
-    Text,
-    Drawer,
-    DrawerContent,
-    useDisclosure,
-    Menu,
-    MenuButton,
-    MenuDivider,
-    MenuItem,
-    MenuList,
-    Heading,
-  } from "@chakra-ui/react";
-  import { FiMenu, FiBell, FiChevronDown, FiHome } from "react-icons/fi";
-  import { FaCarSide,FaHandsHelping  } from "react-icons/fa";
-  import { MdOutlineEmojiPeople } from "react-icons/md";
-  import { FaMapLocationDot } from "react-icons/fa6";
+  Avatar,
+  Box,
+  CloseButton,
+  Drawer,
+  DrawerContent,
+  Flex,
+  HStack,
+  Icon,
+  IconButton,
+  Menu,
+  MenuButton,
+  MenuDivider,
+  MenuItem,
+  MenuList,
+  Text,
+  VStack,
+  useColorModeValue,
+  useMediaQuery,
+  useDisclosure
+} from "@chakra-ui/react";
+import { FaCarSide, FaHandsHelping } from "react-icons/fa";
+import { FaMapLocationDot } from "react-icons/fa6";
+import { FiBell, FiChevronDown, FiHome, FiMenu } from "react-icons/fi";
+import { MdOutlineEmojiPeople } from "react-icons/md";
 
   // import { IconType } from 'react-icons'
-  import { useEffect, useState } from "react";
   import { Link } from "react-router-dom";
-  import logo from "../../assets/logo2.png";
+import logo from "../../assets/logo2.png";
 
   
   const SidebarContent = (props) => {
     const { onClose, Role, AddCustomer, ...rest } = props;
-  
+    const [isMediumScreen] = useMediaQuery("(max-width: 66em)"); // Detect medium screen
+    const [isSmallScreen] = useMediaQuery("(max-width: 30em)");
     return (
+      <>
+      {!isMediumScreen && (
       <Box
         transition="3s ease"
         fontFamily="Arial"
@@ -62,6 +64,9 @@ import {
           <Link to="/addVehicle">
             <NavItem icon={FaCarSide}>Add Vehicle</NavItem>
           </Link>
+          <Link to="/vehicledetail">
+            <NavItem icon={FaCarSide}>Vehicle Detail</NavItem>
+          </Link>
           
           <Link to="/addDriver">
             <NavItem icon={MdOutlineEmojiPeople}>Add Driver</NavItem>
@@ -69,11 +74,16 @@ import {
           <Link to="/livelocation">
             <NavItem icon={FaMapLocationDot}>Live View</NavItem>
           </Link>
+          
           <NavItem icon={FaHandsHelping }>Help</NavItem>
         </>
       </Box>
+      )}
+      </>
+
     );
   };
+
   
   const NavItem = ({ icon, children, ...rest }) => {
     return (
