@@ -19,7 +19,7 @@ import {
     MenuList,
     Heading,
   } from "@chakra-ui/react";
-  import { FiMenu, FiBell, FiChevronDown, FiHome } from "react-icons/fi";
+  import { FiMenu, FiBell, FiChevronDown, FiHome, FiPhoneIncoming } from "react-icons/fi";
   import { FaCarSide,FaHandsHelping  } from "react-icons/fa";
   import { MdOutlineEmojiPeople } from "react-icons/md";
   import { FaMapLocationDot } from "react-icons/fa6";
@@ -70,7 +70,12 @@ import {
             <NavItem icon={FaMapLocationDot}>Live View</NavItem>
           </Link>
           <NavItem icon={FaHandsHelping }>Help</NavItem>
-        </>
+
+          <Link to="/contactUs">
+            <NavItem icon={FiPhoneIncoming}>Contact Us</NavItem>
+          </Link>
+          
+          </>
       </Box>
     );
   };
