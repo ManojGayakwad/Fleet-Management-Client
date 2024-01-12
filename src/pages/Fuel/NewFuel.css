@@ -1,0 +1,134 @@
+/* 
+.container {
+  width: 100%;
+}
+
+/* Media query for medium screens (768px) */
+@media screen and (min-width: 481px) and (max-width: 768px) {
+    .container {
+      width: 80%;
+    }
+  
+    .formControl {
+      margin-top: 10px;
+      margin-left: 0;
+    }
+  
+    .searchInput {
+      width: 100%;
+      margin-left: 0;
+      margin-right: 0;
+    }
+  
+    .sortSelect {
+      width: 100%;
+      margin-left: 0;
+    }
+    .table{
+      font-size:14px;
+    }
+    .table td {
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+  }
+  
+  /* Media query for small screens (480px) */
+  @media screen and (max-width: 480px) {
+    .container {
+      width: 30%;
+    }
+  
+    .formControl {
+      margin-top: 10px;
+      margin-left: 0;
+    }
+  
+    .searchInput {
+      width: 100%;
+      margin-left: 0;
+      margin-right: 0;
+    }
+  
+    .sortSelect {
+      width: 100%;
+      margin-left: 0;
+    }
+    .table {
+      font-size: 12px;
+    }
+  
+    .table td {
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+  }
+  
+  /* Media query for very small screens (468px) */
+  @media screen and (max-width: 468px) {
+    .table {
+      /* Adjust styles for very small screens */
+      font-size: 10px;
+    }
+    .table td {
+      white-space: nowrap;
+  
+      overflow: hidden;    /* Hide any content that overflows the cell */
+      text-overflow: ellipsis; /* Display an ellipsis (...) for truncated text */
+    }
+  }
+  
+  /* Media query for very small screens (468px) */
+  @media screen and (max-width: 468px) {
+    .table {
+      font-size: 10px;
+    }
+  
+    .table td {
+      overflow:auto;
+      text-overflow: ellipsis;
+    }
+    .formControl,
+    .searchInput,
+    .sortSelect {
+      width: 100%;
+      margin-left: 0;
+      margin-right: 0;
+    }
+  }
+    
+  
+  .datePicker {
+    -webkit-padding-end: var(--chakra-space-8);
+          padding-inline-end: var(--chakra-space-8);
+          width: 100%;
+          height: var(--input-height);
+          font-size: var(--input-font-size);
+          -webkit-padding-start: var(--input-padding);
+          padding-inline-start: var(--input-padding);
+          border-radius: var(--input-border-radius);
+          min-width: 0px;
+          outline: 2px solid transparent;
+          outline-offset: 2px;
+          position: relative;
+          -webkit-appearance: none;
+          -moz-appearance: none;
+          -ms-appearance: none;
+          appearance: none;
+          transition-property: var(--chakra-transition-property-common);
+          transition-duration: var(--chakra-transition-duration-normal);
+          padding-bottom: 1px;
+          line-height: var(--chakra-lineHeights-normal);
+          background: inherit;
+          --select-bg: var(--chakra-colors-white);
+          --input-font-size: var(--chakra-fontSizes-md);
+          --input-padding: var(--chakra-space-4);
+          --input-border-radius: var(--chakra-radii-md);
+          --input-height: var(--chakra-sizes-10);
+          border: 1px solid;
+          border-color: inherit;
+      }
+  
+  
