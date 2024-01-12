@@ -1,0 +1,51 @@
+.date-picker {
+    width: 220px;
+    background-color: gray.100;
+   
+  }
+  
+  .date-picker-calendar {
+    z-index: 9999;
+  }
+ .date-picker{
+  
+    display: -webkit-inline-box;
+    display: -webkit-inline-flex;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -ms-appearance: none;
+    appearance: none;
+    -webkit-align-items: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    position: relative;
+    white-space: nowrap;
+    vertical-align: middle;
+    outline: 2px solid transparent;
+   
+    border-radius: var(--chakra-radii-md);
+    font-weight: var(--chakra-fontWeights-semibold);
+    
+    height: 32px;
+    min-width: var(--chakra-sizes-10);
+    font-size: var(--chakra-fontSizes-md);
+    
+    width: 200px;
+    background: var(--chakra-colors-gray-100);
+    margin-right: var(--chakra-space-6);
+    margin-left: 0px;
+}
+
+
+
