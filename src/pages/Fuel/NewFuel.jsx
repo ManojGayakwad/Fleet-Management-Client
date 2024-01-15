@@ -13,6 +13,7 @@ import {
   Text,
   Stack,
   useMediaQuery,
+  Card,
 } from "@chakra-ui/react";
 import car from "../../assets/car.jpeg";
 // import "./NewFuel.css";
@@ -107,25 +108,34 @@ const NewFuel = () => {
   return (
     <>
       <Dashboard />
-      {/* <div  style={{ marginTop: "20px",overflow:"hidden"}}> */}
+      <div  style={{ marginTop: "5px",overflow:"hidden"}}>
 
-      <Box p="3" mb="2" mt={isMediumScreen ? "70px" : "0"} 
-       width={isSmallScreen ? "94%" : "90%"} height={isMediumScreen ? "70vh":"auto"} position="relative" fontFamily="arial" borderRadius={isSmallScreen ? "5px" : "10px"} overflow="auto"
+      <Box p="5" mb="2" mt={isMediumScreen ? "20px" : "0"} 
+       width={isMediumScreen ? "100%" : "90%"} 
+       height={isMediumScreen ? "70vh":"auto"}
+        position="absolute" fontFamily="arial"
+         borderRadius={isSmallScreen ? "5px" : "10px"}
+          overflow="auto"
       //  left={isSmallScreen ? "10px" : "-moz-initial"}
        >
       <Box
         // mx={5}
-        mt={10}
+        // mt={10}
+        backgroundColor={"gray.100"}
+        // border="2px solid black"
         overflow="auto"
         marginLeft={isMediumScreen ? "8px" : "260px"}
-         minWidth={isMediumScreen ? "100%" : "80%"}
-        //minWidth="100%"
-        position="relative"
+        //  minWidth={isMediumScreen ? "100%" : "80%"}
+        // minWidth="100%"
+        // position="relative"
         display="flex"
+        flexDirection="column"
+        // flexDirection="initial"
+        p={4}
       >
         {/* <Heading size={{ base: "md", md: "lg" }}>Fuel</Heading> */}
 
-        <Box border="1px solid gray" backgroundColor={"gray.100"}>
+        <Box   w={"100%"}>
           <Box>
             {/* Circular background */}
             <Heading size={{ base: "md", md: "lg" }}>Fuel Efficiency</Heading>
@@ -134,7 +144,8 @@ const NewFuel = () => {
             {/* Pie chart --start */}
 
             <Flex
-              direction={{ isMediumScreen: "column", isSmallScreen: "row" }}
+              // direction={{ isMediumScreen: "column", isSmallScreen: "row" }}
+              direction={{base:"column",md:"row"}}
               justify="space-between"
               p={4}
               flexWrap="wrap"
@@ -260,7 +271,8 @@ const NewFuel = () => {
           <FormControl mt={5} ml={2} className="formControl">
             <FormLabel>Date</FormLabel>
 
-            <Flex mb={4}>
+            <Flex 
+            direction={{ base: "column", md: "row" }}mb={4} align="center">
               {/* <Box mb={4} mr={15} w={1000}> */}
               <DatePicker
                 className={"datePicker"}
@@ -270,23 +282,37 @@ const NewFuel = () => {
                 endDate={endDate}
                 selectsRange
                 dateFormat="dd/MM/yyyy"
+                mb={{ base: 4, md: 0 }}
               />
               <Input
                 className="searchInput"
-                w={"30%"}
+                // border={"2px solid gray"}
+                // w={"30%"}
+                w={{ base: "100%", md: "30%" }}
+                border={"2px solid gray"}
+
                 placeholder="Search by Vehicle"
                 value={searchTerm}
                 onChange={handleSearch}
-                mb={4}
-                ml={50}
-                mr={50}
+                // mb={4}
+                // ml={50}
+                // mr={50}
+                mb={{ base: 5, md: 0 }} // Adjusted margin for small screens
+              ml={{ base: 0, md: 50 }} // Adjusted margin for small screens
+               mr={{ base: 0, md: 50 }} // Adjusted margin for small screens
               />
               <Select
                 onChange={handleSort}
-                mb={4}
-                w={"30%"}
-                ml={15}
+                border={"2px solid gray"}
+                // mb={4}
+                // w={"30%"}
+                // ml={15}
                 className="sortSelect"
+                mb={{ base: 5, md: 0 }} // Adjusted margin for small screens
+                w={{ base: "100%", md: "30%"}}
+                ml={{ base: 0, md: 15 }}
+          
+
               >
                 <option value="asc">Sort by Newest</option>
                 <option value="desc">Sort by Oldest</option>
@@ -294,13 +320,17 @@ const NewFuel = () => {
               {/* </Box> */}
             </Flex>
           </FormControl>
+          
+          
+          <Box overflowX="auto"> {/* Adjusted */}
 
           <Table
-            position="relative"
+            // position="relative"
             // overflow="auto"
             // className="table"
             size="sm"
-            // style={{
+              width={"100%"}
+              // style={{
             //   width: "100%", // Adjust the width for smaller screens
             //   "@media screen and (maxWidth: 768px)": {
             //     maxWidth: "100%",
@@ -398,10 +428,12 @@ const NewFuel = () => {
               ))}
             </Tbody>
           </Table>
+          </Box>
         </Box>
       </Box>
-      {/* </div> */}
       </Box>
+      </div>
+
     </>
   );
 };
