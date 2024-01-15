@@ -40,7 +40,7 @@
     height: 32px;
     min-width: var(--chakra-sizes-10);
     font-size: var(--chakra-fontSizes-md);
-    
+    margin-bottom: 5px;
     width: 200px;
     background: var(--chakra-colors-gray-100);
     margin-right: var(--chakra-space-6);

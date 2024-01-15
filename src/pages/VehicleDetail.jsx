@@ -15,10 +15,10 @@ import {
   Td,
   Th,
   Thead,
-  useMediaQuery,
-  Tr
+  Tr,
+  useMediaQuery
 } from '@chakra-ui/react';
-import React, { useState } from 'react';
+import { useState } from 'react';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import Dashboard from './Dashboard/Dashboard';
@@ -32,7 +32,7 @@ const VehicleDetail = () => {
   const [startDate, setStartDate] = useState(null);
   const [endDate, setEndDate] = useState(null);
   const [isMediumScreen] = useMediaQuery("(max-width: 66em)"); // Detect medium screen
-    const [isSmallScreen] = useMediaQuery("(max-width: 30em)");
+    
 
   const handleFilterChange = (filter) => {
     setSelectedFilter(filter);
@@ -120,28 +120,31 @@ const VehicleDetail = () => {
   return (
     <>
       <Dashboard/>
-      <Box position="relative" ml={isMediumScreen ?"0px":"260px"}  marginTop="20p%" width={isMediumScreen ?"100":"100"} overflow="auto">
+      <Box position="relative" ml={isMediumScreen ?"0px":"260px"}  marginTop="20px" width={isMediumScreen ?"100":"100"} overflow="auto">
         <Flex direction="column" p={4}>
           <Box borderWidth="1px" borderRadius="lg" overflow="hidden" boxShadow="md">
             <Box p={4}>
-              <Heading fontFamily="Arial" fontSize="2xl">
+            <Flex direction="row" justify={{ base: 'center', md: 'flex-start' }}  p={4}>
+              <Heading  fontFamily="Arial" fontSize="2xl">
                 Vehicle List
               </Heading>
+              </Flex>
             </Box>
-            <Flex align="center" justify="space-between" mb="4" p={4}>
+            <Flex direction={{ base: 'column', md: 'row' }}  justify="space-around"  p={4}  >
             
-              <Input
+              <Input 
                 placeholder="Search"
                 value={searchQuery}
                 onChange={handleSearchChange}
                 mr="150"
+                mb="5px"
                 width="200px"
                 variant="filled"
                 size="sm"
               />
 
             
-              <DatePicker  
+              <DatePicker  justify="space-between"  p={4}
                 selected={startDate}
                 onChange={handleDateChange}
                 startDate={startDate}
@@ -156,13 +159,14 @@ const VehicleDetail = () => {
                 dropdownMode="select"
                 aria-label="Select Date Range"
                 
+                
                   />
                 
               
 
              
-              <Menu>
-                <MenuButton as={Button} variant="filled"  width="200px" height="32px" bg="gray.100" rounded="md" mr={8} >
+              <Menu mb={{ base: 4, md: 0 }} justify="space-between"  p={4}  >
+                <MenuButton as={Button} variant="filled"  width="200px" height="32px" bg="gray.100" rounded="md" mr={8}  mb="5px" >
                   {selectedStatusFilter ? `Status: ${selectedStatusFilter}` : 'Select Status'}
                 </MenuButton>
                 <MenuList>
@@ -174,8 +178,8 @@ const VehicleDetail = () => {
               </Menu>
 
            
-              <Menu>
-                <MenuButton as={Button} variant="filled" size="sm"   width="200px" height="32px" bg="gray.100" rounded="md" mr={6}>
+              <Menu mb={{ base: 4, md: 0 }}>
+                <MenuButton as={Button} variant="filled" size="sm"   width="200px" height="32px" bg="gray.100" rounded="md" mr={6}  mb="5px">
                   {selectedFilter ? `Time Range: ${selectedFilter}` : 'Select Time Range'}
                 </MenuButton>
                 <MenuList >
