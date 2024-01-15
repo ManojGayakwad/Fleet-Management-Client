@@ -22,7 +22,6 @@ import DatePicker from "react-datepicker";
 // import "react-datepicker/dist/react-datepicker.css";
 import "react-datepicker/dist/react-datepicker.css";
 
-
 import "react-date-range/dist/styles.css"; // main style file
 import "react-date-range/dist/theme/default.css"; // theme css file
 
@@ -110,140 +109,155 @@ const NewFuel = () => {
       <Dashboard />
       {/* <div  style={{ marginTop: "20px",overflow:"hidden"}}> */}
 
-      <Box 
+      <Box p="3" mb="2" mt={isMediumScreen ? "70px" : "0"} 
+       width={isSmallScreen ? "94%" : "90%"} height={isMediumScreen ? "70vh":"auto"} position="relative" fontFamily="arial" borderRadius={isSmallScreen ? "5px" : "10px"} overflow="auto"
+      //  left={isSmallScreen ? "10px" : "-moz-initial"}
+       >
+      <Box
         // mx={5}
         mt={10}
         overflow="auto"
         marginLeft={isMediumScreen ? "8px" : "260px"}
-        minWidth={isMediumScreen ? "100%" : "80%"}
+         minWidth={isMediumScreen ? "100%" : "80%"}
+        //minWidth="100%"
         position="relative"
-        display='flex'
+        display="flex"
       >
+        {/* <Heading size={{ base: "md", md: "lg" }}>Fuel</Heading> */}
 
-       {/* <Heading mb={5}>Fuel</Heading> */}
-       
-       
         <Box border="1px solid gray" backgroundColor={"gray.100"}>
           <Box>
             {/* Circular background */}
-            <Heading size="lg">Fuel Efficiency</Heading>
+            <Heading size={{ base: "md", md: "lg" }}>Fuel Efficiency</Heading>
             <br />
+
             {/* Pie chart --start */}
+
             <Flex
-              display="flex"
-              flexDirection={isSmallScreen ? "column" : "row"}
-              ml={5}
-              gap={5}
+              direction={{ isMediumScreen: "column", isSmallScreen: "row" }}
+              justify="space-between"
+              p={4}
+              flexWrap="wrap"
             >
-              <Box 
-              // className="container"
-                position="relative"
-                border="1px"
-                borderRadius="15px"
-                w={isMediumScreen ? "30%" : "30%"}
-                p={2}
-              >
-                <Flex direction="column" p={2}>
-                  <Box textAlign="left" display='flex' gap={20}>
-                    <Box display='flex' flexDirection='column'>           
-                       <Text fontWeight="bold" fontSize="lg" mb={2}>
-                      {fuelUsage.toLocaleString()} L <br />
-                    </Text>
-                    <Text fontWeight="bold" color="gray">
-                      Fuel Usage
-                    </Text>
-                    </Box> 
+              {/* Fuel Usage */}
 
-                    <CircularProgress
-                      position="absolute"
-                      right={0}
-                      top="50%"
-                      transform="translateY(-50%)"
-                      value={(fuelUsage / 10000) * 100}
-                      color="blue.500"
-                      size="80px"
-                      thickness="10px"
-                      mr={5}
-                    />
-                  </Box>
-                </Flex>
-              </Box>
+              {/* <Flex
+                display="flex"
+                flexDirection={isSmallScreen ? "column" : "row"}
+                ml={5}
+                gap={5}
+              > */}
+                <Box
+                  // className="container"
+                  position="relative"
+                  border="1px"
+                  borderRadius="15px"
+                  w={{ base: '100%', md: '30%' }}
+                  p={2}
+                  mb={5}
+                >
+                  <Flex direction="column" p={2}>
+                    <Box textAlign="left" display="flex" gap={20}>
+                      <Box display="flex" flexDirection="column">
+                        <Text fontWeight="bold" fontSize="lg" mb={2}>
+                          {fuelUsage.toLocaleString()} L <br />
+                        </Text>
+                        <Text fontWeight="bold" color="gray">
+                          Fuel Usage
+                        </Text>
+                      </Box>
 
-              {/*pie chart distance  */}
-
-              <Box
-                className="container"
-                position="relative"
-                border="1px"
-                borderRadius="15px"
-                w={isMediumScreen ? "30%" : "30%"}
-
-                p={2}
-              >
-                <Flex direction="column" p={2}>
-                <Box textAlign="left" display='flex' gap={20}>
-                    <Box display='flex' flexDirection='column'>  
-                    <Text fontWeight="bold" fontSize="lg" mb={2}>
-                      {distance.toLocaleString()} Km <br />
-                    </Text>
-                    <Text fontWeight="bold" color="gray">
-                      Distance
-                    </Text>
+                      <CircularProgress
+                        position="absolute"
+                        right={0}
+                        top="50%"
+                        transform="translateY(-50%)"
+                        value={(fuelUsage / 10000) * 100}
+                        color="blue.500"
+                        size="80px"
+                        thickness="10px"
+                        mr={5}
+                      />
                     </Box>
+                  </Flex>
+                </Box>
 
-                    <CircularProgress
-                      position="absolute"
-                      right={0}
-                      top="50%"
-                      transform="translateY(-50%)"
-                      value={(distance / 100000) * 100}
-                      color="blue.500"
-                      size="80px"
-                      thickness="10px"
-                      mr={5}
-                    />
-                  </Box>
-                </Flex>
-              </Box>
-              {/* pie chart time */}
-              <Box
-              className="container"
-                position="relative"
-                border="1px"
-                borderRadius="15px"
-                w={isMediumScreen ? "30%" : "30%"}
+                {/*pie chart distance  */}
 
-                p={2}
-              >
-                <Flex direction="column" p={2}>
-                <Box textAlign="left" display='flex' gap={20}>
-                    <Box display='flex' flexDirection='column'>  
-                    <Text fontWeight="bold" fontSize="lg" mb={2}>
-                      {formatTime(time)} <br />
-                    </Text>
-                    <Text fontWeight="bold" color="gray">
-                      Ideal Time
-                    </Text>
+                <Box
+                  // className="container"
+                  position="relative"
+                  border="1px"
+                  borderRadius="15px"
+                  // w={isMediumScreen ? "30%" : "30%"}
+                  w={{ base: '100%', md: '30%' }}
+                  p={2}
+                  mb={5}
+                >
+                  <Flex direction="column" p={2}>
+                    <Box textAlign="left" display="flex" gap={20}>
+                      <Box display="flex" flexDirection="column">
+                        <Text fontWeight="bold" fontSize="lg" mb={2}>
+                          {distance.toLocaleString()} Km <br />
+                        </Text>
+                        <Text fontWeight="bold" color="gray">
+                          Distance
+                        </Text>
+                      </Box>
+
+                      <CircularProgress
+                        position="absolute"
+                        right={0}
+                        top="50%"
+                        transform="translateY(-50%)"
+                        value={(distance / 100000) * 100}
+                        color="blue.500"
+                        size="80px"
+                        thickness="10px"
+                        mr={5}
+                      />
                     </Box>
+                  </Flex>
+                </Box>
+                {/* pie chart time */}
+                <Box
+                  // className="container"
+                  position="relative"
+                  border="1px"
+                  borderRadius="15px"
+                  w={{ base: '100%', md: '30%' }}
+                   p={2}
+                   mb={5}
+                >
+                  <Flex direction="column" p={2}>
+                    <Box textAlign="left" display="flex" gap={20}>
+                      <Box display="flex" flexDirection="column">
+                        <Text fontWeight="bold" fontSize="lg" mb={2}>
+                          {formatTime(time)} <br />
+                        </Text>
+                        <Text fontWeight="bold" color="gray">
+                          Ideal Time
+                        </Text>
+                      </Box>
 
-                    <CircularProgress
-                      position="absolute"
-                      right={0}
-                      top="50%"
-                      transform="translateY(-50%)"
-                      value={time / 3600}
-                      color="blue.500"
-                      size="80px"
-                      thickness="10px"
-                      mr={5}
-                    />
-                  </Box>
-                </Flex>
-              </Box>
-            </Flex>
+                      <CircularProgress
+                        position="absolute"
+                        right={0}
+                        top="50%"
+                        transform="translateY(-50%)"
+                        value={time / 3600}
+                        color="blue.500"
+                        size="80px"
+                        thickness="10px"
+                        mr={5}
+                      />
+                    </Box>
+                  </Flex>
+                </Box>
+              </Flex>
             {/* Pie chart --End */}
           </Box>
-          <FormControl mt={5} ml={2} className="formControl" >
+          <FormControl mt={5} ml={2} className="formControl">
             <FormLabel>Date</FormLabel>
 
             <Flex mb={4}>
@@ -258,7 +272,7 @@ const NewFuel = () => {
                 dateFormat="dd/MM/yyyy"
               />
               <Input
-              className="searchInput"
+                className="searchInput"
                 w={"30%"}
                 placeholder="Search by Vehicle"
                 value={searchTerm}
@@ -267,7 +281,13 @@ const NewFuel = () => {
                 ml={50}
                 mr={50}
               />
-              <Select onChange={handleSort} mb={4} w={"30%"} ml={15} className="sortSelect">
+              <Select
+                onChange={handleSort}
+                mb={4}
+                w={"30%"}
+                ml={15}
+                className="sortSelect"
+              >
                 <option value="asc">Sort by Newest</option>
                 <option value="desc">Sort by Oldest</option>
               </Select>
@@ -276,8 +296,8 @@ const NewFuel = () => {
           </FormControl>
 
           <Table
-          position="relative"
-              // overflow="auto"
+            position="relative"
+            // overflow="auto"
             // className="table"
             size="sm"
             // style={{
@@ -306,7 +326,7 @@ const NewFuel = () => {
                 <Th>Cost</Th>
               </Tr>
             </Thead>
-            <Tbody >
+            <Tbody>
               {sortedData.map((item) => (
                 <Tr key={item.id}>
                   <Td>
@@ -321,9 +341,10 @@ const NewFuel = () => {
                       <Image
                         src={car}
                         alt="Vehicle Image"
-                        boxSize="50px"
+                        // boxSize="50px"
                         border="1px solid black"
                         borderRadius="5px"
+                        boxSize={{ base: "30px", md: "50px" }}
                       />
 
                       <Box ml={3}>
@@ -380,6 +401,7 @@ const NewFuel = () => {
         </Box>
       </Box>
       {/* </div> */}
+      </Box>
     </>
   );
 };
