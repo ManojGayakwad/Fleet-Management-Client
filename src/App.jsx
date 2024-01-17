@@ -8,11 +8,11 @@ import ContactUs from "./pages/ContactUs";
 // import VehicleDetails from "./pages/VehicleDetails";
 
 import AddVehicle from "./pages/AddVehicle";
-import ContactUs from "./pages/ContactUs";
+// import ContactUs from "./pages/ContactUs";
 import Dashboard from "./pages/Dashboard/Dashboard";
-import DashboardContent from "./pages/Dashboard/DashboardContent/DashboardContent";
-import LiveView from "./pages/LiveLocation/Livelocation";
-import Login from "./pages/Login/Login";
+// import DashboardContent from "./pages/Dashboard/DashboardContent/DashboardContent";
+// import LiveView from "./pages/LiveLocation/Livelocation";
+// import Login from "./pages/Login/Login";
 import VehicleDetail from "./pages/VehicleDetail";
 import NewFuel from "./pages/Fuel/NewFuel"
 
