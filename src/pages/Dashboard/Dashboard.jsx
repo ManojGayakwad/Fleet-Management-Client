@@ -62,6 +62,9 @@ const SidebarContent = (props) => {
         <Link to="/addVehicle">
           <NavItem icon={FaCarSide}>Add Vehicle</NavItem>
         </Link>
+        <Link to="/VehicleDetail">
+          <NavItem icon={FaCarSide}>Vehicle Detail</NavItem>
+        </Link>
         
         <Link to="/addDriver">
           <NavItem icon={MdOutlineEmojiPeople}>Add Driver</NavItem>
@@ -76,6 +79,9 @@ const SidebarContent = (props) => {
           <NavItem icon={FaMapLocationDot}>Fuel Usage</NavItem>
         </Link>
         <NavItem icon={FaHandsHelping }>Help</NavItem>
+        <Link to="/contactUs">
+          <NavItem icon={FaMapLocationDot}>Contact Us</NavItem>
+        </Link>
       </>
     </Box>
   );
