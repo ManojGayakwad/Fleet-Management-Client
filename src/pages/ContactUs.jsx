@@ -1,77 +1,118 @@
+
+
+
 import React from 'react';
-import { ChakraProvider, CSSReset, Box, Flex, Heading, Image, Text, VStack } from '@chakra-ui/react';
+import Dashboard from './Dashboard/Dashboard';
+import ridiptLogo from '../assets/ridipt1.png';
+import {
+  ChakraProvider,
+  Box,
+  Heading,
+  Text,
+  Divider,
+  FormControl,
+  FormLabel,
+  Input,
+  Textarea,
+  Button,
+  extendTheme,
+  useMediaQuery,
+} from '@chakra-ui/react';
 
-const App = () => {
+const theme = extendTheme({
+  styles: {
+    global: {
+      body: {
+         bg: '#fdf5e6', // background color
+      },
+    },
+  },
+});
+
+const ContactUsPage = () => {
+  const [isMediumScreen] = useMediaQuery('(max-width: 66em)'); // Detect medium screen
+  const [isSmallScreen] = useMediaQuery('(max-width: 30em)');
+
   return (
-    <ChakraProvider>
-      <CSSReset />
-      <Box as="head">
-        <meta charset="UTF-8" />
-        <link rel="icon" type="image/svg+xml" href="/New.svg" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Ridipt Technologies</title>
-        <script type="module" crossorigin src="/assets/index--HJL9SQ-.js"></script>
-        <link rel="stylesheet" crossorigin href="/assets/index-NccxHIJv.css" />
-        <style data-emotion="css" data-s=""></style>
-      </Box>
-      <Box as="body">
-        <Flex
-          id="root"
-          direction="column"
-          align="center"
-          justify="flex-start"
-          bgGradient="radial-gradient(circle at center bottom, rgb(29, 102, 92), rgb(29, 37, 44) 40%)"
-          minH="100vh"
-          minW="100vw"
-          pt="20px"
-          overflow="hidden"
-        >
-          <VStack spacing="10px" margin={['10px', '20px', '10px', '10px']} align="flex-start">
-            <Flex
-              className="main"
-              ml="20px"
-              borderRadius="16px"
-              bgColor="rgb(249, 250, 250)"
-              direction="column"
-              align="center"
+    <>
+      <Dashboard />
+      <div style={{ position: 'relative', marginTop: 'relative', width: '80%', marginLeft: 'auto' }}>
+        <Box p="8" textAlign={isMediumScreen ? 'start' : 'center'}>
+          <Box p="14" bg="green.500" borderRadius="xl" boxShadow="2xl" w="100%" minH="30vh">
+            <Heading
+              mb="4"
+              fontSize={isMediumScreen ? '1xl' : '5xl'}
+              color="white"
+              fontFamily="sans-serif"
+              justifyContent="center"
             >
-              <Box
-                className="logoBox"
-                borderRadius="16px 16px 2px 2px"
-                bgColor="rgb(46, 59, 71)"
-                maxW="100%"
-                maxH="100px"
-                cursor="pointer"
-              >
-                <Image src="src/assets/ridipt1.png" alt="Logo" w="300px" mt="-75px" />
-              </Box>
-              <Heading color="rgb(29, 37, 44)" fontSize="1.2rem" fontFamily="Arial" margin="0px 30px">
-                For Any Query Contact Us Today
+              Contact Us
+            </Heading>
+            <Text fontSize={{ base: 'sm', md: 'xl' }} fontFamily="cursive" fontWeight="bold" color="white">
+              Got a Question? We are here to help!
+            </Text>
+          </Box>
+          <Divider mb="6" />
+          <Box display="flex" flexDirection={{ base: 'column', md: 'row' }} justifyContent="space-between">
+            <Box
+              mb={{ base: '8', md: '0' }}
+              borderRadius="md"
+              bg="gray.100"
+              boxShadow="lg"
+              height="fit-content"
+              overflow="hidden"
+              p={4}
+              flexBasis={{ base: '100%', md: '48%' }}
+            >
+              <Heading as="h2" size={isMediumScreen ? 'sm' : 'lg'} mb="4" color="teal.500" fontFamily="Courier">
+                Ridipt Technologies
               </Heading>
-              <Box
-                className="contactForm"
-                margin="10px auto"
-                w="90%"
-                bgColor="rgb(249, 250, 250)"
-                color="black"
-                borderRadius="16px"
-                boxShadow="rgba(84, 86, 90, 0.16) 0px 4px 32px"
-              >
-                <VStack className="MuiStack-root css-fb56kb" spacing="4">
-                  <Text>Varun Satija</Text>
-                  <Text>
-                    Gurukripa, Office No. 3, behind Maratah Mandir lane, Bavdhan, Pune, Maharashtra 411021.
-                  </Text>
-                  <Text>Tel: 011 66481018</Text>
-                  <Text>Fax: 011 66481003</Text>
-                </VStack>
+              <Box mb="4" bg="#add8e6" boxShadow="lg" borderRadius="md" p="10" overflow="hidden">
+                <Text fontSize={isMediumScreen ? 'lg' : '2xl'} color="gray.700" fontFamily="revert-layer" fontWeight="800">
+                  <u>Varun Satija</u>
+                </Text>
+                <br />
+                <Text fontSize={isMediumScreen ? 'sm' : 'xl'}>
+                  Gurukripa, Office No. 3,
+                  <br />
+                  behind Maratah Mandir lane, Bavdhan,
+                  <br />
+                  Pune,411052
+                  <br />
+                  Phone: (123) 456-7890
+                </Text>
               </Box>
-            </Flex>
-          </VStack>
-        </Flex>
-      </Box>
-    </ChakraProvider>
+            </Box>
+            <Box
+              p="6"
+              borderRadius="md"
+              bg="white"
+              boxShadow="md"
+              flexBasis={{ base: '100%', md: '50%' }}
+              mt={{ base: '4', md: '0' }}
+            >
+              <FormControl mb="4">
+                <FormLabel htmlFor="name">Your Name</FormLabel>
+                <Input type="text" id="name" name="name" />
+              </FormControl>
+              <FormControl mb="4">
+                <FormLabel htmlFor="email">Your Email</FormLabel>
+                <Input type="email" id="email" name="email" />
+              </FormControl>
+              <FormControl mb="4">
+                <FormLabel htmlFor="message">Your Message</FormLabel>
+                <Textarea id="message" name="message" rows="4" />
+              </FormControl>
+              <Button colorScheme="teal" size="lg" mt="4" w="100%">
+                Submit
+              </Button>
+            </Box>
+          </Box>
+        </Box>
+      </div>
+    </>
   );
-}
+};
 
-export default App;
+export default ContactUsPage;
+

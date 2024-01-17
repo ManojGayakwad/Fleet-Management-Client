@@ -1,5 +1,3 @@
-//Dashboard
-
 import {
   IconButton,
   Avatar,
